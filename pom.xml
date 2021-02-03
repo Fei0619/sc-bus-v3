@@ -6,7 +6,39 @@
 
   <groupId>com.test</groupId>
   <artifactId>sc-bus-v3</artifactId>
+  <packaging>pom</packaging>
   <version>1.0.0</version>
+  <modules>
+    <module>sc-bus-api</module>
+    <module>sc-bus-common</module>
+    <module>sc-bus-api-internal</module>
+  </modules>
 
+  <properties>
+    <sc-bus-api.version>1.0.0</sc-bus-api.version>
+    <sc-share-common.version>1.0.0</sc-share-common.version>
+    <sc-bus-common.version>1.0.0</sc-bus-common.version>
+    <spring-boot-dependencies.version>2.3.3.RELEASE</spring-boot-dependencies.version>
+    <spring-cloud-dependencies.version>RELEASE</spring-cloud-dependencies.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot-dependencies.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud-dependencies.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
 </project>
