@@ -1,0 +1,5 @@
+server:
+  port: 9785
+spring:
+  application:
+    name: BUS-SERVER
