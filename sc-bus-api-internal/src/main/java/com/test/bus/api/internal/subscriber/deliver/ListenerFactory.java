@@ -68,7 +68,7 @@ public class ListenerFactory implements InitializingBean {
           Parameter[] parameters = method.getParameters();
           if (parameters.length == 1) {
             Parameter parameter = parameters[0];
-            Type type = parameter.getType();
+            Type type = parameter.getParameterizedType();
             JavaType javaType = JsonUtils.INSTANCE.getJavaType(type);
             List<EventListenerContext> contextList = EVENT_HANDLER_MAPPING.computeIfAbsent(topic, (key) -> new ArrayList<>());
             List<Set<String>> conditions = ConditionMatcher.parseConditionString(eventListener.condition());
