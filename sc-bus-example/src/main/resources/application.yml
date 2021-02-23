@@ -1,8 +1,8 @@
 server:
-  port: 9785
+  port: 5285
 spring:
   application:
-    name: BUS-SERVER
+    name: BUS-EXAMPLE
 eureka:
   client:
     service-url:
@@ -18,3 +18,4 @@ eureka:
     lease-expiration-duration-in-seconds: 10
     # 心跳间隔
     lease-renewal-interval-in-seconds: 5
+

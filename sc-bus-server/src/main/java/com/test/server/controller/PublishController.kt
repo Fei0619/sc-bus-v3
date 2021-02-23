@@ -28,10 +28,11 @@ class PublishController(private val messageReceiver: MessageReceiver) {
     if (log.isDebugEnabled) {
       log.debug("publish:{${message.toJsonString()}}")
     }
-    return messageReceiver.receiveMessages(listOf(message).toFlux()).doFinally {
-      val disposeMillis = System.currentTimeMillis() - startTimestamp
-      log.info("publish..eventId={},disposeMillis={}ms", message.eventId, disposeMillis)
-    }
+    return messageReceiver.receiveMessages(listOf(message).toFlux())
+        .doFinally {
+          val disposeMillis = System.currentTimeMillis() - startTimestamp
+          log.info("publish.eventId={},disposeMillis={}ms", message.eventId, disposeMillis)
+        }
   }
 
   @PostMapping("/batch")
@@ -40,11 +41,12 @@ class PublishController(private val messageReceiver: MessageReceiver) {
     if (log.isDebugEnabled) {
       log.debug("publish:{${messages.toJsonString()}}")
     }
-    return messageReceiver.receiveMessages(messages.toFlux()).doFinally {
-      val disposeMillis = System.currentTimeMillis() - startTimestamp
-      val eventIds = messages.joinToString { message -> message.eventId }
-      log.info("publish..eventIds={},disposeMillis={}ms", eventIds, disposeMillis)
-    }
+    return messageReceiver.receiveMessages(messages.toFlux())
+        .doFinally {
+          val disposeMillis = System.currentTimeMillis() - startTimestamp
+          val eventIds = messages.joinToString { message -> message.eventId }
+          log.info("publish..eventIds={},disposeMillis={}ms", eventIds, disposeMillis)
+        }
   }
 
 }
