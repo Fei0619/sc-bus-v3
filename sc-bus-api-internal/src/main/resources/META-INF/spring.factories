@@ -1,1 +1,3 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.test.bus.api.internal.conf.BusApiBeanConfig
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.test.bus.api.internal.conf.BusApiBeanConfig,\
+  com.test.bus.api.internal.conf.BusApiRunner
