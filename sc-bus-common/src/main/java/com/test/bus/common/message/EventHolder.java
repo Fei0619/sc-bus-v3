@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * 时间消息生成器
+ * 事件消息生成器
  *
  * @author 费世程
  * @date 2021/2/3 10:49
@@ -29,6 +29,7 @@ public class EventHolder {
     final EventHolder eventHolder = new EventHolder();
     final EventMessage<Object> eventMessage = new EventMessage<>(topic, payload);
     eventHolder.messages.add(eventMessage);
+    eventHolder.cursor = 0;
     return eventHolder;
   }
 
